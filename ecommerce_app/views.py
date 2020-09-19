@@ -8,16 +8,12 @@ from decimal import Decimal
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
 
-
 # Create your views here.
-
-
 def index(request):
     all_products = Product.objects.all()
     return render(request, "ecommerce_app/index.html", {
-                                    'all_products': all_products,
-                                    })
-
+        'all_products': all_products,
+    })
 
 def show_product(request, product_id, product_slug):
     product = get_object_or_404(Product, id=product_id)
@@ -34,7 +30,6 @@ def show_product(request, product_id, product_slug):
                                             'product': product,
                                             'form': form,
                                             })
-
 
 def show_cart(request):
 
@@ -116,7 +111,6 @@ def process_payment(request):
 @csrf_exempt
 def payment_done(request):
     return render(request, 'ecommerce_app/payment_done.html')
-
 
 @csrf_exempt
 def payment_canceled(request):

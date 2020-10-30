@@ -1,5 +1,4 @@
 {% extends 'ecommerce_app/base.html' %}
-
 {% block content %}
 
     <div class="container">
@@ -10,6 +9,7 @@
                 <div class="col-lg-4">
                     <h3><a href="{% url 'product_detail' product.pk product.slug %}">{{ product.name }}</a></h3>
                     <p>Price ${{ product.price }}</p>
+
                 </div>
             {% endfor %}
 
